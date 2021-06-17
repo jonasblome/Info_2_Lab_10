@@ -30,7 +30,9 @@ public class SetEngine {
 	}
 	
 	public String length(String set) {
-		return "";
+		Set<Character> A = toSet(set);
+		int len = A.length();
+		return Integer.toString(len);
 	}
 	
 	private Set<Character> toSet(String str) {
