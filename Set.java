@@ -48,7 +48,7 @@ public class Set<type>{
 	public String toString() {
 		String res = "";
 		for (type t : set) {
-			res += ", " + t;
+			res += t + ", ";
 		}
 		return res;
 	}
@@ -65,6 +65,28 @@ public class Set<type>{
 				res.add(sub.get(i));
 			}
 		}
+		return res;
+	}
+	
+	public Set<type> intersection(Set<type> sub) {
+		Set<type> res = this;
+//		
+//		for (int i = 0; i<sub.length(); i++) {
+//			if (!contains(sub.get(i))) {
+//				res.add(sub.get(i));
+//			}
+//		}
+		return res;
+	}
+	
+	public Set<type> subtraction(Set<type> sub) {
+		Set<type> res = this;
+//		
+//		for (int i = 0; i<sub.length(); i++) {
+//			if (!contains(sub.get(i))) {
+//				res.add(sub.get(i));
+//			}
+//		}
 		return res;
 	}
 }
