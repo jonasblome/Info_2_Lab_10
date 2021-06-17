@@ -7,30 +7,40 @@
  */
 
 public class SetEngine {
-	
+
+	private Set<Character> A;
+	private Set<Character> B;	
 	private Set<Character> res;
 	
 	public SetEngine() {
 		res = new Set<>();
+		A = new Set<>();
+		B = new Set<>();
 	}
 	
 	public String union(String setA, String setB) {
-		Set<Character> A = toSet(setA);
-		Set<Character> B = toSet(setB);
+		A = toSet(setA);
+		B = toSet(setB);
 		res = A.union(B);
 		return res.toString();
 	}
 	
 	public String intersection(String setA, String setB) {
-		return "";
+		A = toSet(setA);
+		B = toSet(setB);
+		res = A.intersection(B);
+		return res.toString();
 	}
 	
 	public String subtraction(String setA, String setB) {
-		return "";
+		A = toSet(setA);
+		B = toSet(setB);
+		res = A.subtraction(B);
+		return res.toString();
 	}
 	
 	public String length(String set) {
-		Set<Character> A = toSet(set);
+		A = toSet(set);
 		int len = A.length();
 		return Integer.toString(len);
 	}
@@ -43,12 +53,5 @@ public class SetEngine {
 			}
 		}
 		return set;
-	}
-
-	/**
-	 * @return The title of this calculation engine.
-	 */
-	public String getTitle() {
-		return "Set Calculator";
 	}
 }
