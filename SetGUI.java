@@ -77,14 +77,19 @@ public class SetGUI implements ActionListener {
 
 	public void actionPerformed(ActionEvent event) {
 		String command = event.getActionCommand();
-		if (command.equals("=")) {
-			calc.equals();
-		} else if (command.equals("del")) {
-			calc.clear();
-		} else {
-			calc.buttonPressed(command);
+		if (command.equals("Union")) {
+			result.setText(calc.union(setA.getText(), setB.getText()));
+		} else if (command.equals("Intersection")) {
+			calc.intersection(setA.getText(), setB.getText());
+		} else if (command.equals("Subtraction")) {
+			calc.subtraction(setA.getText(), setB.getText());
+		} else if (command.equals("Length Set A")) {
+			calc.length(setA.getText());
+		} else if (command.equals("Length Set B")) {
+			calc.length(setB.getText());
+		} else if (command.equals("Clear Fields")) {
+			clear();
 		}
-		redisplay();
 	}
 
 	/**
@@ -98,9 +103,10 @@ public class SetGUI implements ActionListener {
 		button.addActionListener(this);
 		panel.add(button);
 	}
-
-	// Change (int) displayValue to Hex (String) and capitalizes the letter
-	private void redisplay() {
-		setA.setText("" + calc.getDisplayString().toUpperCase());
+	
+	private void clear() {
+		setA.setText("");
+		setB.setText("");
+		result.setText("");
 	}
 }
