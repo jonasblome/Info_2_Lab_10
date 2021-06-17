@@ -6,7 +6,6 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
@@ -14,14 +13,17 @@ import javax.swing.border.EmptyBorder;
 /**
  * GUI for the calculator, based on the former labs.
  * 
- * @author	___ & n-c0de-r 
+ * @author	jonasblome
+ * @author	n-c0de-r 
  * @version	17.06.2021
  */
 public class SetGUI implements ActionListener {
 
 	private SetEngine calc;
 	private JFrame frame;
-	private JTextField display;
+	private JTextField setA;
+	private JTextField setB;
+	private JTextField result;
 
 	public SetGUI(SetEngine engine) {
 		calc = engine;
@@ -45,41 +47,30 @@ public class SetGUI implements ActionListener {
 		contentPane.setLayout(new BorderLayout(8, 8));
 		contentPane.setBorder(new EmptyBorder(10, 10, 10, 10));
 
-		display = new JTextField();
-		contentPane.add(display, BorderLayout.NORTH);
-		display.setEditable(false);
+		JPanel inputPanel = new JPanel(new GridLayout(2, 1));
+		
+		setA = new JTextField();
+		inputPanel.add(setA, BorderLayout.NORTH);
+		setB = new JTextField();
+		inputPanel.add(setB, BorderLayout.SOUTH);
+		
+		contentPane.add(inputPanel, BorderLayout.NORTH);
+		
+		JPanel buttonPanel = new JPanel(new GridLayout(2, 3));
 
-		JPanel buttonPanel = new JPanel(new GridLayout(4, 6));
+		addButton(buttonPanel, "Union");
+		addButton(buttonPanel, "Intersection");
+		addButton(buttonPanel, "Subtraction");
 
-		addButton(buttonPanel, "7");
-		addButton(buttonPanel, "8");
-		addButton(buttonPanel, "9");
-		buttonPanel.add(new JLabel(" "));
-		addButton(buttonPanel, "(");
-		addButton(buttonPanel, ")");
-
-		addButton(buttonPanel, "4");
-		addButton(buttonPanel, "5");
-		addButton(buttonPanel, "6");
-		buttonPanel.add(new JLabel(" "));
-		addButton(buttonPanel, "*");
-		addButton(buttonPanel, "/");
-
-		addButton(buttonPanel, "1");
-		addButton(buttonPanel, "2");
-		addButton(buttonPanel, "3");
-		buttonPanel.add(new JLabel(" "));
-		addButton(buttonPanel, "+");
-		addButton(buttonPanel, "-");
-
-		addButton(buttonPanel, "0");
-		buttonPanel.add(new JLabel(" "));
-		buttonPanel.add(new JLabel(" "));
-		addButton(buttonPanel, "del");
-		buttonPanel.add(new JLabel(" "));
-		addButton(buttonPanel, "=");
+		addButton(buttonPanel, "Length Set A");
+		addButton(buttonPanel, "Length Set B");
+		addButton(buttonPanel, "Clear Fields");
 
 		contentPane.add(buttonPanel, BorderLayout.CENTER);
+		
+		result = new JTextField();
+		contentPane.add(result, BorderLayout.SOUTH);
+		result.setEditable(false);
 
 		frame.pack();
 	}
@@ -110,6 +101,6 @@ public class SetGUI implements ActionListener {
 
 	// Change (int) displayValue to Hex (String) and capitalizes the letter
 	private void redisplay() {
-		display.setText("" + calc.getDisplayString().toUpperCase());
+		setA.setText("" + calc.getDisplayString().toUpperCase());
 	}
 }
