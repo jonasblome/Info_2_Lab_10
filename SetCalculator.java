@@ -2,7 +2,8 @@
  * The runner class of a calculator.
  * Based on earlier calculator versions.
  * 
- * @author	___ & n-c0de-r
+ * @author	jonasblome
+ * @author	n-c0de-r
  * @version	17.06.2021
  */
 
