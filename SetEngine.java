@@ -1,55 +1,46 @@
 /**
  * The main part doing the calculations based on former labs.
  * 
- * @author	___ & n-c0de-r &
+ * @author	jonasblome
+ * @author	n-c0de-r &
  * @version	17.06.21
  */
 
 public class SetEngine {
-	private String displayString = "";
-	private Postfix postfix;
-
+	
+	private Set<Character> res;
+	
 	public SetEngine() {
-		postfix = new Postfix();
+		res = new Set<>();
 	}
-
-	/**
-	 * @return The string that should be calculated by postfix.
-	 */
-	public String getDisplayString() {
-		return displayString;
+	
+	public String union(String setA, String setB) {
+		Set<Character> A = toSet(setA);
+		Set<Character> B = toSet(setB);
+		res = A.union(B);
+		return res.toString();
 	}
-
-	/**
-	 * Extend the string to evaluate
-	 * 
-	 * @param number The number pressed on the calculator.
-	 */
-	public void buttonPressed(String number) {
-		displayString = displayString + number;
-		displayString += " ";
+	
+	public String intersection(String setA, String setB) {
+		return "";
 	}
-
-	/**
-	 * Calculate the new set
-	 */
-	public void equals() {
-//		if (displayString != null) {
-//			String pfx = postfix.infixToPostfix(displayString);
-//			if (mode == 10) {
-//				displayString = "" + postfix.evaluate(pfx);
-//			} else {
-//				// Cast Doubles to integer, as hex can't calculate doubles anyways!
-//				displayString = "" + Integer.toHexString((int) (postfix.evaluate(pfx)));
-//			}
-//		}
+	
+	public String subtraction(String setA, String setB) {
+		return "";
 	}
-
-	/**
-	 * The 'del' (delete) button was pressed. Clear the input string.
-	 */
-	public void clear() {
-		displayString = "";
+	
+	public String length(String set) {
+		return "";
+	}
+	
+	private Set<Character> toSet(String str) {
+		Set<Character> set = new Set<>();
+		for (int i = 0; i < str.length(); i++) {
+			if (str.charAt(i) != ',' && str.charAt(i) != ' ') {
+			set.add(str.charAt(i));
+			}
+		}
+		return set;
 	}
 
 	/**
