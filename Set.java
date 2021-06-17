@@ -17,7 +17,7 @@ public class Set<type>{
 	}
 	
 	public void add(type e) {
-		if (contains(e)) {
+		if (!contains(e)) {
 			set.add(e);
 		} else {
 			return;
