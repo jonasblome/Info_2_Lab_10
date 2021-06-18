@@ -41,7 +41,7 @@ public class SetGUI implements ActionListener {
 	}
 
 	private void makeFrame() {
-		frame = new JFrame(calc.getTitle());
+		frame = new JFrame("Set Calculator");
 
 		JPanel contentPane = (JPanel) frame.getContentPane();
 		contentPane.setLayout(new BorderLayout(8, 8));
@@ -75,21 +75,30 @@ public class SetGUI implements ActionListener {
 		frame.pack();
 	}
 
+	/**
+	 * Performs an action according to the String labeling a button.
+	 * 
+	 * @param event	The event causing the action, a button click.
+	 */
 	public void actionPerformed(ActionEvent event) {
 		String command = event.getActionCommand();
+		String A = setA.getText();
+		String B = setB.getText();
+		String str = "";
 		if (command.equals("Union")) {
-			result.setText(calc.union(setA.getText(), setB.getText()));
+			str = calc.union(A, B);
 		} else if (command.equals("Intersection")) {
-			calc.intersection(setA.getText(), setB.getText());
+			str =  calc.intersection(A, B);
 		} else if (command.equals("Subtraction")) {
-			calc.subtraction(setA.getText(), setB.getText());
+			str =  calc.subtraction(A, B);
 		} else if (command.equals("Length Set A")) {
-			result.setText(calc.length(setA.getText()));
+			str = "Length of Set A is :" + calc.length(A);
 		} else if (command.equals("Length Set B")) {
-			result.setText(calc.length(setB.getText()));
+			str = "Length of Set B is :" + calc.length(B);
 		} else if (command.equals("Clear Fields")) {
 			clear();
 		}
+		result.setText(str);
 	}
 
 	/**
@@ -104,6 +113,9 @@ public class SetGUI implements ActionListener {
 		panel.add(button);
 	}
 	
+	/**
+	 * Clears all input and output fields.
+	 */
 	private void clear() {
 		setA.setText("");
 		setB.setText("");
