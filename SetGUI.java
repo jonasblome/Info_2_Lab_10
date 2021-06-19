@@ -49,11 +49,11 @@ public class SetGUI implements ActionListener {
 
 		JPanel inputPanel = new JPanel(new GridLayout(2, 1));
 		
-		setA = new JTextField();
+		setA = new JTextField("Input set A here");
 		inputPanel.add(setA, BorderLayout.NORTH);
-		setB = new JTextField();
+		setB = new JTextField("Type elements for B here");
 		inputPanel.add(setB, BorderLayout.SOUTH);
-		
+
 		contentPane.add(inputPanel, BorderLayout.NORTH);
 		
 		JPanel buttonPanel = new JPanel(new GridLayout(2, 3));
@@ -117,8 +117,8 @@ public class SetGUI implements ActionListener {
 	 * Clears all input and output fields.
 	 */
 	private void clear() {
-		setA.setText("");
-		setB.setText("");
+		setA.setText("Input set A here");
+		setB.setText("Type elements for B here");
 		result.setText("");
 	}
 }
