@@ -100,16 +100,16 @@ public class Set<type>{
 	//Calculation methods start here
 	
 	/**
-	 * Setter method, unite two given Sets together.
+	 * Setter method, create in intersection of two Sets.
 	 * 
-	 * @param sub	The second Set to merge with the main one.
-	 * @return	Resulting Set, combination of both.
+	 * @param sub	The second Set to find the intersection with the main one.
+	 * @return	Resulting Set, intersection of both.
 	 */
-	public Set<type> union(Set<type> sub) {
-		Set<type> res = this;
+	public Set<type> intersection(Set<type> sub) {
+		Set<type> res = new Set<>();
 		
 		for (int i = 0; i<sub.length(); i++) {
-			if (!contains(sub.get(i))) {
+			if (contains(sub.get(i))) {
 				res.add(sub.get(i));
 			}
 		}
@@ -117,14 +117,14 @@ public class Set<type>{
 	}
 	
 	/**
-	 * Setter method, create in intersection of two Sets.
+	 * Setter method, create a power Set of two given Sets.
 	 * 
-	 * @param sub	The second Set to find the intersection with the main one.
-	 * @return	Resulting Set, intersection of both.
+	 * @param sub	The second Set to combine with the main one.
+	 * @return	Resulting Set, permutation of both.
 	 */
-	public Set<type> intersection(Set<type> sub) {
+	public Set<type> powerset(Set<type> sub) {
 		Set<type> res = this;
-		
+//		
 //		for (int i = 0; i<sub.length(); i++) {
 //			if (!contains(sub.get(i))) {
 //				res.add(sub.get(i));
@@ -142,28 +142,28 @@ public class Set<type>{
 	public Set<type> subtraction(Set<type> sub) {
 		Set<type> res = this;
 		
-//		for (int i = 0; i<sub.length(); i++) {
-//			if (!contains(sub.get(i))) {
-//				res.add(sub.get(i));
-//			}
-//		}
+		for (int i = 0; i<sub.length(); i++) {
+			if (contains(sub.get(i))) {
+				res.remove(sub.get(i));
+			}
+		}
 		return res;
 	}
 	
 	/**
-	 * Setter method, create a power Set of two given Sets.
+	 * Setter method, unite two given Sets together.
 	 * 
-	 * @param sub	The second Set to combine with the main one.
-	 * @return	Resulting Set, permutation of both.
+	 * @param sub	The second Set to merge with the main one.
+	 * @return	Resulting Set, combination of both.
 	 */
-	public Set<type> powerset(Set<type> sub) {
+	public Set<type> union(Set<type> sub) {
 		Set<type> res = this;
 		
-//		for (int i = 0; i<sub.length(); i++) {
-//			if (!contains(sub.get(i))) {
-//				res.add(sub.get(i));
-//			}
-//		}
+		for (int i = 0; i<sub.length(); i++) {
+			if (!contains(sub.get(i))) {
+				res.add(sub.get(i));
+			}
+		}
 		return res;
 	}
 }
