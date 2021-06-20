@@ -92,9 +92,9 @@ public class SetGUI implements ActionListener {
 		} else if (command.equals("Subtraction")) {
 			str =  calc.subtraction(A, B);
 		} else if (command.equals("Length Set A")) {
-			str = "Length of Set A is :" + calc.length(A);
+			str = "Length of Set A is: " + calc.length(A);
 		} else if (command.equals("Length Set B")) {
-			str = "Length of Set B is :" + calc.length(B);
+			str = "Length of Set B is: " + calc.length(B);
 		} else if (command.equals("Clear Fields")) {
 			clear();
 		}
